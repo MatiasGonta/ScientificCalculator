@@ -24,7 +24,7 @@ header {
     font-size: 30px;
     color: rgba(160, 178, 238, .6);
 
-    background-image: url("maths-title-background.jpg");
+    background-image: url("src/maths-title-background.jpg");
     background-size: cover;
     background-clip: text;
     -webkit-background-clip: text;
@@ -108,12 +108,12 @@ header {
     color: rgb(160, 178, 238);
 }
 
-span {
+#name {
     color: rgb(126, 153, 243);
     cursor: pointer;
 }
 
-span:hover, .socials a:hover {
+#name:hover, .socials a:hover {
     color: rgb(97, 129, 236);
 }
 
