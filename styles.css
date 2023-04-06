@@ -64,7 +64,7 @@ header {
     flex-wrap: wrap;
 }
 
-.button, .empty {
+.button,.operators, .empty {
     width: 50px;
     height: 50px;
     margin: 10px;
@@ -80,27 +80,20 @@ header {
 
 .empty {
     cursor: default;
+    background-color: #eaedef;
 }
 
-.button:active {
+.button:active, .operators:active {
     font-size: 13px;
 }
 
-.button:focus {
-    outline: 0;
-}
-
-.button:hover {
+.button:hover, .operators:hover {
     filter: brightness(80%);
     transition: filter .25s;
 }
 
 .button.operators {
     background-color: rgb(160, 178, 238);
-}
-
-.empty {
-    background-color: #eaedef;
 }
 
 .mention {

@@ -1,15 +1,29 @@
-window.addEventListener("load", ()=> {
-    const display = document.querySelector(".calculator-display");
-    const keypadButtons = document.getElementsByClassName("button");
+const display = document.querySelector(".calculator-display");
+const keypadButtons = document.getElementsByClassName("button");
 
-    const keypadButtonsArray = Array.from(keypadButtons);
-
-    keypadButtonsArray.forEach(button => {
-        button.addEventListener("click", ()=> {
-            calculator(button,display);
-        })
+const keypadButtonsArray = Array.from(keypadButtons);
+keypadButtonsArray.forEach(button => {
+    button.addEventListener("click", ()=> {
+        calculator(button,display);
     })
-})
+});
+
+window.addEventListener("keydown", (e)=> {
+    const key = e.key.toLowerCase();
+    let validKeys = ["0","1","2","3","4","5","6","7","8","9","+","-","*","/","%","."," "];
+    if (validKeys.includes(key)){
+        display.innerHTML += key;
+    }
+    if (key == "backspace" || key == "delete"){
+        clearLast(display);
+    }
+    if (key == "c"){
+        clear(display);
+    }
+    if (key == "enter" || key == "="){
+        calculate(display);
+    }
+});
 
 function calculator(button,display) {
     switch (button.value) {
@@ -64,10 +78,6 @@ function calculator(button,display) {
     }
 }
 
-function calculate(display) {
-    display.innerHTML = eval(`${display.innerHTML}`);
-}
-
 function calculateCos(display) {
     display.innerHTML = Math.cos(display.innerHTML);
 }
@@ -77,7 +87,7 @@ function calculateSin(display) {
 }
 
 function calculateTan(display) {
-    display.innerHTML = Math.tan(display.innerHTML);
+        display.innerHTML = Math.tan(display.innerHTML);
 }
 
 function calculateACos(display) {
@@ -134,7 +144,11 @@ function refresh(display,button){
     if(display.innerHTML == 0) {
         display.innerHTML = "";
     }
-    display.innerHTML += button.innerHTML;
+    display.innerHTML += button.value;
+}
+
+function calculate(display) {
+    display.innerHTML = eval(display.innerHTML);
 }
 
 function clear(display) {
